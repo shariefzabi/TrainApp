@@ -1,0 +1,42 @@
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    /* Navbar background color */
+    padding: 10px 20px;
+}
+
+#logo {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    /* Text color for the logo */
+}
+
+#menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+dxi-item {
+    margin-left: 20px;
+    /* Space between menu items */
+    color: white;
+    /* Text color for menu items */
+}
+
+.white-text {
+    color: white;
+    text-decoration: none;
+}
+
+#menu .dx-menu-item {
+    color: white !important;
+    /* Ensures that the text color is white */
+}
+
+.dx-menu-item-text {
+    color: white !important;
+}

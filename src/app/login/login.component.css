@@ -1,0 +1,38 @@
+.dx-popup-bottom .dx-toolbar-after {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.p-0 {
+    padding: 0px !important;
+}
+
+.dx-popup-content {
+    padding: 0px !important;
+
+}
+
+
+.button-container {
+    text-align: end;
+    /* Aligns the buttons to the right end */
+    padding-top: 10px;
+    /* Optional: Adds some space between the hr and the buttons */
+}
+
+.end-button {
+    margin-left: 10px;
+    /* Optional: Adds space between the buttons */
+    display: inline-block;
+    /* Ensures the buttons respect the text alignment */
+}
+
+.bg-green {
+    background-color: green;
+
+}
+
+.bg-red {
+    background-color: red;
+
+}

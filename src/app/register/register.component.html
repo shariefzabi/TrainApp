@@ -1,0 +1,20 @@
+<dx-popup [(visible)]="isModalVisible" [title]="'Register'" [width]="650" [height]="350" [showCloseButton]="true"
+    [dragEnabled]="true">
+    <div *dxTemplate="let data of 'content'">
+        <dx-form [formData]="formData" [colCount]="2">
+            <dxi-item dataField="firstName" [colSpan]="1" [label]="{ text: 'First Name', location: 'top' }"></dxi-item>
+            <dxi-item dataField="lastName" [colSpan]="1" [label]="{ text: 'Last Name', location: 'top' }"></dxi-item>
+            <dxi-item dataField="email" [colSpan]="1" [label]="{ text: 'Email', location: 'top' }"></dxi-item>
+            <dxi-item dataField="phone" [colSpan]="1" [label]="{ text: 'Phone', location: 'top' }"></dxi-item>
+            <dxi-item dataField="password" [colSpan]="1" [label]="{ text: 'Password', location: 'top' }"></dxi-item>
+        </dx-form>
+
+        <hr style="border: 1px solid grey;" />
+
+        <div class="button-container">
+            <dx-button class='m-2 end-button bg-red' text="Close" (onClick)="hideModal()"></dx-button>
+            <dx-button class='m-2 end-button bg-green' text="Register" (onClick)="Register()"></dx-button>
+        </div>
+
+    </div>
+</dx-popup>
