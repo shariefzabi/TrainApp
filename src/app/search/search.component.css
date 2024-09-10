@@ -1,0 +1,98 @@
+.card-head {
+    background-color: grey;
+    color: white;
+    height: 36px;
+    padding-left: 14px;
+    padding-top: 9px;
+}
+
+.flexbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flexbox-end {
+    display: flex;
+    justify-content: end;
+
+}
+
+.content-style {
+    font-size: 20px;
+}
+
+.blue-button {
+    background-color: aqua;
+    color: white;
+
+}
+
+.bg-grey {
+    background-color: grey;
+}
+
+.form {
+    margin-top: 10px;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+.content-style-2 {
+    font-size: 20px;
+
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+.add-button {
+    height: fit-content;
+    margin-bottom: 0px;
+    margin-top: 21px;
+    background-color: aqua;
+}
+
+.box {
+    border: 1px solid black;
+}
+
+.red-button {
+    background-color: red;
+}
+
+.bg-green {
+    background-color: green;
+
+}
+
+.bg-red {
+    background-color: red;
+
+}
+
+.button-container {
+    text-align: end;
+    /* Aligns the buttons to the right end */
+    padding-top: 10px;
+    /* Optional: Adds some space between the hr and the buttons */
+}
+
+.end-button {
+    margin-left: 10px;
+    /* Optional: Adds space between the buttons */
+    display: inline-block;
+    /* Ensures the buttons respect the text alignment */
+}
+
+.ml-5 {
+    margin-left: 20px;
+}
+
+.button-holder {
+    vertical-align: bottom;
+
+
+}

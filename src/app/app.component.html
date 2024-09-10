@@ -1,0 +1,30 @@
+<div id="navbar">
+  <h1 id="logo">Railway</h1>
+  <dx-button>click me</dx-button>
+
+  <dx-menu id="menu">
+    <dxi-item>
+      <a class="white-text" routerLink="/home">Home</a>
+    </dxi-item>
+    <dxi-item>
+      <a class="white-text" routerLink="/Train">Train</a>
+    </dxi-item>
+    @if(isCredsAvailable) {
+    <dxi-item>
+      <div class="white-text">{{creds['email'].substring(0,5)}}</div>
+    </dxi-item>
+    <dxi-item>
+      <div (click)="logoff()" class="white-text">logoff</div>
+    </dxi-item>
+    }
+    @else {
+    <dxi-item>
+      <a class="white-text" routerLink="/login">Login</a>
+    </dxi-item>
+    <dxi-item>
+      <a class="white-text" routerLink="/Register">Register</a>
+    </dxi-item>
+    }
+  </dx-menu>
+</div>
+<router-outlet></router-outlet>

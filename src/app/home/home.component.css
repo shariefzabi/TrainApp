@@ -1,0 +1,21 @@
+.mainHeading {
+    font-size: 5rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.flexbox {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 322px;
+}
+
+.train-images{
+    width: 300px;
+    height: 300px;
+}
+.button-s{
+    margin: 10px;
+    color: white;
+    background-color: aqua;
+}

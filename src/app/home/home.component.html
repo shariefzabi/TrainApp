@@ -1,0 +1,30 @@
+<h1 class="mainHeading">Book Ticket</h1>
+<div class="flexbox">
+    <div>
+        <dx-form [formData]="formData" [colCount]="2">
+            <!-- First SelectBox with ngModel -->
+            <dxi-item dataField="fromStation" editorType="dxSelectBox" [colSpan]="1"
+                [label]="{ text: 'Choose an Option', location: 'top' }"
+                [editorOptions]="{ items: stationNames, placeholder: 'Select an option', value: formData.fromStation }">
+            </dxi-item>
+            <!-- Second SelectBox with ngModel -->
+            <dxi-item dataField="toStation" editorType="dxSelectBox" [colSpan]="1"
+                [label]="{ text: 'Choose an Option', location: 'top' }"
+                [editorOptions]="{ items: stationNames, placeholder: 'Select an option', value: formData.toStation}">
+            </dxi-item>
+            <!-- Date Field -->
+            <dxi-item dataField="dateOfTravel" editorType="dxDateBox" [colSpan]="1"
+                [label]="{ text: 'Select Date', location: 'top' }" [editorOptions]="{
+                displayFormat: 'yyyy-MM-dd', placeholder: 'Select trave Date'
+            }">
+
+            </dxi-item>
+
+
+        </dx-form>
+        <dx-button class="button-s" text="Click Me" (onClick)="onSearch()"></dx-button>
+    </div>
+    <div>
+        <img [src]='imageurl'>
+    </div>
+</div>

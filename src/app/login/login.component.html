@@ -1,0 +1,17 @@
+<dx-popup [(visible)]="isModalVisible" [title]="'Login'" [width]="650" [height]="300" [showCloseButton]="true"
+    [dragEnabled]="true">
+    <div *dxTemplate="let data of 'content'">
+        <dx-form [formData]="formData" [colCount]="1">
+            <dxi-item dataField="phone" [colSpan]="1" [label]="{ text: 'Phone', location: 'top' }"></dxi-item>
+            <dxi-item dataField="password" [colSpan]="1" [label]="{ text: 'Password', location: 'top' }"></dxi-item>
+        </dx-form>
+
+        <hr style="border: 1px solid grey;" />
+
+        <div class="button-container">
+            <dx-button class='m-2 end-button bg-red' text="Close" (onClick)="hideModal()"></dx-button>
+            <dx-button class='m-2 end-button bg-green' text="Login" (onClick)="Login()"></dx-button>
+        </div>
+
+    </div>
+</dx-popup>

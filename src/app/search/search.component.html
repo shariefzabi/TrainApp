@@ -1,0 +1,106 @@
+<!-- <div class="flexbox">
+    <div></div>
+    <div>
+        <dx-button class="button-s" text="Click Me" (onClick)="onSearch()"></dx-button>
+    </div>
+
+</div> -->
+
+<div class="flexbox bg-grey p-20">
+    <dx-form [formData]="formData" [colCount]="3">
+        <!-- First SelectBox with ngModel -->
+        <dxi-item dataField="fromStation" editorType="dxSelectBox" [colSpan]="1"
+            [editorOptions]="{ items: stationNames, placeholder: 'Select an option', value: formData.fromStation }"
+            [label]="{ visible: false }">
+        </dxi-item>
+        <!-- Second SelectBox with ngModel -->
+        <dxi-item dataField="toStation" editorType="dxSelectBox" [colSpan]="1"
+            [editorOptions]="{ items: stationNames, placeholder: 'Select an option', value: formData.toStation}"
+            [label]="{ visible: false }">
+        </dxi-item>
+        <!-- Date Field -->
+        <dxi-item dataField="dateOfTravel" editorType="dxDateBox" [colSpan]="1" [editorOptions]="{
+            displayFormat: 'yyyy-MM-dd', placeholder: 'Select trave Date'
+        }" [label]="{ visible: false }">
+
+        </dxi-item>
+
+
+    </dx-form>
+    <dx-button class='blue-button' text="Modify Search" (onClick)="onSearch()"></dx-button>
+</div>
+<div class="content-style-2 p-10 box m-2">
+    <strong>{{this.cardsData.length}}</strong>
+    <span> found For <strong>{{departureStation}}</strong></span> to
+    <span> <strong>{{arrivalStation}}</strong> </span> on
+    <span>{{dateOfTravel | date :'dd-MMMM-yyyy'}}</span>
+</div>
+
+<dx-tile-view [dataSource]="cardsData" [itemMargin]="15" [baseItemHeight]="220" [baseItemWidth]="750"
+    itemTemplate="tile" direction="vertical">
+    <div class="tile" *dxTemplate="let data of 'tile'">
+        <div class="card-head">
+            {{data.trainName}} ({{data.trainNo}})
+        </div>
+        <div class="flexbox">
+            <p style="margin-left: 10px;" class="content-style">
+                {{getTime(data.departureDate)}}|{{data.trainName}}|{{getDay(data.departureDate)}}</p>
+            <p class="content-style">15:00</p>
+            <p style="margin-right: 10px; margin-top: 0px;" class="content-style">
+                {{getTime(data.departureDate)}}|{{data.trainName}}|{{getDay(data.departureDate)}}</p>
+        </div>
+        <p style="margin-left: 10px;" class="content-style">{{getMonth(data.departureDate)}}</p>
+
+        <dx-button text="Book Now" class="content-style" (onClick)="bookTicket(data)"></dx-button>
+        <dx-button text="Check Availabilty" class="content-style "> </dx-button>
+    </div>
+
+</dx-tile-view>
+
+
+<dx-popup [(visible)]="isPopupVisible" [width]="700" [height]="400" [showCloseButton]="true" [dragEnabled]="true"
+    [closeOnOutsideClick]="true" [title]="'Book Ticket'">
+
+
+    <div *dxTemplate="let data1 of 'content'">
+
+        <div class="flexbox p-20">
+            <dx-form [formData]="passengerInfo" [colCount]="2">
+                <!-- First SelectBox with ngModel -->
+                <dxi-item dataField="passengerName" [colSpan]="1" [label]="{ text: 'Passenger Name', location: 'top'}">
+                </dxi-item>
+                <!-- Second SelectBox with ngModel -->
+                <dxi-item dataField="Age" [colSpan]="1" [label]="{ text: 'Age', location: 'top'}">
+                </dxi-item>
+            </dx-form>
+            <div class="button-holder">
+                <dx-button class='blue-button add-button' text="Add" (onClick)="AddPassenger()"></dx-button>
+            </div>
+        </div>
+        <div class="flexbox-end">
+            <span class=" content-style-2 ml-5">Train : {{selectedTrain.trainName}}</span>
+            <span class=" content-style-2 ml-5">Time : {{getTime(selectedTrain.departureDate)}}</span>
+        </div>
+        <dx-data-grid [dataSource]="data" [showBorders]="true" [width]="650">
+
+            <!-- Define Grid Columns -->
+            <dxi-column dataField="passengerName" caption="Passenger Name" [width]="210"></dxi-column>
+
+            <dxi-column dataField="Age" caption="Age" [width]="210"></dxi-column>
+
+            <!-- Button Column using *dxTemplate -->
+            <dxi-column caption="Action" [width]="210" cellTemplate="cellData">
+                <div *dxTemplate="let data of 'cellData'">
+                    <dx-button class="red-button" text="Delete" (onClick)="deleteRow(data.rowIndex)"> </dx-button>
+                </div>
+            </dxi-column>
+        </dx-data-grid>
+        <div class="button-container">
+            <dx-button class='m-2 end-button bg-red' text="Close" (onClick)="hideModal()"></dx-button>
+            <dx-button class='m-2 end-button bg-green' text="Register" (onClick)="bookTickets()"></dx-button>
+        </div>
+    </div>
+</dx-popup>
+
+<dx-button text="Open Grid Popup">
+</dx-button>
